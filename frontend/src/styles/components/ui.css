@@ -1,0 +1,91 @@
+/* ==========================================================================
+   ui.css — Shared button component styles
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s var(--ease),
+    color 0.15s var(--ease),
+    border-color 0.15s var(--ease),
+    box-shadow 0.15s var(--ease),
+    transform 0.1s var(--ease);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-gold-tint);
+}
+
+/* ---------- Primary: solid emerald, high contrast, main call-to-action ---------- */
+.btn--primary {
+  background-color: var(--color-emerald);
+  color: var(--color-cream);
+  border-color: var(--color-emerald);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: #0d3a30;
+  border-color: #0d3a30;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---------- Gold: for standout/promotional actions (e.g. "+ Shto") ---------- */
+.btn--gold {
+  background-color: var(--color-gold);
+  color: var(--color-emerald);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--gold:hover:not(:disabled) {
+  background-color: #c19d2e;
+  border-color: #c19d2e;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---------- Outline: secondary action, low visual weight ---------- */
+.btn--outline {
+  background-color: var(--surface-card);
+  color: var(--color-charcoal);
+  border-color: var(--surface-border);
+}
+
+.btn--outline:hover:not(:disabled) {
+  border-color: var(--color-gold-soft);
+  background-color: var(--color-cream-dim);
+}
+
+/* ---------- Danger: destructive actions ---------- */
+.btn--danger {
+  background-color: var(--surface-card);
+  color: var(--color-error);
+  border-color: rgba(154, 59, 46, 0.3);
+}
+
+.btn--danger:hover:not(:disabled) {
+  background-color: var(--color-error-tint);
+  border-color: var(--color-error);
+}

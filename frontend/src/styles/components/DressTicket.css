@@ -1,0 +1,123 @@
+/* ==========================================================================
+   FustanTicket — small printable hang-tag for a dress (QR + name + size/color)
+   ========================================================================== */
+
+.ticket-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-cream-dim);
+  padding: var(--space-6);
+  gap: var(--space-5);
+}
+
+.ticket-page__status {
+  font-family: var(--font-body, sans-serif);
+  font-size: var(--text-sm);
+  color: var(--color-charcoal-soft);
+  padding: var(--space-6);
+}
+
+/* The tag itself: fixed small size, meant to be cut out and hung on the dress */
+.ticket {
+  width: 62mm;
+  height: 90mm;
+  background: #ffffff;
+  border: 1px dashed var(--color-charcoal-soft);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6mm 4mm;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-sm);
+}
+
+.ticket__qr {
+  width: 38mm;
+  height: 38mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket__qr img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ticket__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2mm;
+  text-align: center;
+}
+
+.ticket__code {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14pt;
+  letter-spacing: 0.08em;
+  color: var(--color-emerald);
+}
+
+.ticket__name {
+  font-family: var(--font-display);
+  font-size: 12pt;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.ticket__meta {
+  font-size: 9pt;
+  color: var(--color-charcoal-soft);
+  letter-spacing: 0.03em;
+}
+
+.ticket-page__print-btn {
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-emerald);
+  color: var(--color-cream);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Print rules — only the tag itself should end up on paper, at true size
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: 62mm 90mm;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .ticket-page {
+    min-height: 0;
+    padding: 0;
+    background: none;
+  }
+
+  .ticket {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

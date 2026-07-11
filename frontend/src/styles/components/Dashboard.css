@@ -1,0 +1,221 @@
+/* ==========================================================================
+   Dashboard — stat cards, bar chart, most-reserved panel
+   ========================================================================== */
+
+.dashboard__status {
+  padding: var(--space-6);
+  text-align: center;
+  color: var(--color-charcoal-soft);
+  font-size: var(--text-sm);
+}
+
+/* ---------- Stat cards ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.stat-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stat-card__label {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-charcoal-soft);
+  font-weight: 600;
+}
+
+.stat-card__value {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.stat-card--gold .stat-card__value {
+  color: var(--color-gold);
+}
+
+.stat-card--emerald {
+  background: var(--color-emerald);
+  border-color: var(--color-emerald);
+}
+
+.stat-card--emerald .stat-card__label {
+  color: rgba(251, 249, 244, 0.75);
+}
+
+.stat-card--emerald .stat-card__value {
+  color: var(--color-cream);
+}
+
+/* ---------- Two-column layout: chart + most-reserved ---------- */
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 860px) {
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-panel {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.dashboard-columns .dashboard-panel {
+  margin-bottom: 0;
+}
+
+.dashboard-panel__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-base);
+  color: var(--color-emerald);
+  margin-bottom: var(--space-4);
+}
+
+.dashboard-panel__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 var(--space-2);
+  border-radius: 999px;
+  background-color: var(--color-gold-tint);
+  color: var(--color-emerald);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+/* ---------- Bar chart (custom, no library) ---------- */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  height: 180px;
+}
+
+.bar-chart__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: var(--space-2);
+}
+
+.bar-chart__count {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-charcoal-soft);
+}
+
+.bar-chart__track {
+  width: 100%;
+  max-width: 36px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bar-chart__bar {
+  width: 100%;
+  min-height: 4px;
+  background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-emerald) 100%);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s var(--ease);
+}
+
+.bar-chart__label {
+  font-size: var(--text-xs);
+  color: var(--color-charcoal-soft);
+  white-space: nowrap;
+}
+
+/* ---------- Most-reserved dress card ---------- */
+.most-reserved {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--surface-border);
+  background-color: var(--color-cream-dim);
+  text-align: left;
+  transition: border-color 0.15s var(--ease), background-color 0.15s var(--ease);
+}
+
+.most-reserved:hover {
+  border-color: var(--color-gold-soft);
+  background-color: var(--color-gold-tint);
+}
+
+.most-reserved__photo {
+  width: 64px;
+  height: 82px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+  background-color: var(--surface-card);
+}
+
+.most-reserved__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.most-reserved__photo-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-charcoal-soft);
+}
+
+.most-reserved__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.most-reserved__name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.most-reserved__meta {
+  font-size: var(--text-sm);
+  color: var(--color-charcoal-soft);
+}

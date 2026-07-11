@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Kerkesat — Reservation requests review page
+   Filter tabs, status badges, and a dedicated responsive actions layout
+   (Aprovo/Refuzo are full-size text buttons, unlike Fustane's icon buttons,
+   so they need their own column rules instead of reusing .fustane-table__actions)
+   ========================================================================== */
+
+/* ---------- Filter tabs ---------- */
+.requests-filter {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.requests-filter__btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  border: 1px solid var(--surface-border);
+  background-color: var(--surface-card);
+  color: var(--color-charcoal-soft);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.15s var(--ease), color 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+
+.requests-filter__btn:hover {
+  border-color: var(--color-gold-soft);
+}
+
+.requests-filter__btn--active {
+  background-color: var(--color-emerald);
+  color: var(--color-cream);
+  border-color: var(--color-emerald);
+}
+
+/* ---------- Status badge ---------- */
+.requests-status {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.requests-status--pending {
+  background-color: var(--color-gold-tint);
+  color: var(--color-gold);
+}
+
+.requests-status--approved {
+  background-color: rgba(13, 46, 39, 0.1);
+  color: var(--color-emerald);
+}
+
+.requests-status--rejected {
+  background-color: var(--color-error-tint);
+  color: var(--color-error);
+}
+
+/* ==========================================================================
+   Requests table — override the fixed-width, icon-sized actions column
+   from Fustane.css, since Kerkesat's Aprovo/Refuzo are full text buttons
+   ========================================================================== */
+
+.requests-table {
+  table-layout: auto;
+}
+
+.requests-table th,
+.requests-table td {
+  white-space: normal;
+}
+
+.requests-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: flex-end;
+  min-width: 200px;
+}
+
+.requests-actions .btn {
+  flex: 0 0 auto;
+}
+
+.requests-empty-actions {
+  color: var(--color-charcoal-soft);
+  font-size: var(--text-sm);
+  text-align: right;
+  display: block;
+}
+
+/* ==========================================================================
+   Responsive breakpoints
+   ========================================================================== */
+
+@media (max-width: 1023px) and (min-width: 640px) {
+  .requests-actions {
+    min-width: 160px;
+  }
+
+  .requests-actions .btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
+  }
+}
+
+@media (max-width: 639px) {
+  /* On mobile the table becomes a stacked card list (see Fustane.css rules) —
+     make the actions row match that layout instead of right-aligning. */
+  .requests-actions {
+    justify-content: flex-start;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .requests-actions .btn {
+    flex: 1 1 auto;
+  }
+
+  .requests-filter {
+    gap: var(--space-1);
+  }
+
+  .requests-filter__btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+  }
+}

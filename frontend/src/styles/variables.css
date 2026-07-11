@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-emerald: #0D2E27;
+  --color-emerald-light: #16453B;
+  --color-emerald-tint: #E7EEEC;
+
+  --color-cream: #FBF9F4;
+  --color-cream-dim: #F3EEE2;
+
+  --color-gold: #D4AF37;
+  --color-gold-soft: #E8D9A8;
+  --color-gold-tint: #F7F0DC;
+
+  --color-charcoal: #222222;
+  --color-charcoal-soft: #6B6862;
+
+  --color-error: #9A3B2E;
+  --color-error-tint: #F7E9E6;
+  --color-success: #3B6B4F;
+
+  --surface-card: #FFFFFF;
+  --surface-border: #EAE4D4;
+
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+  --tracking-widest: 0.14em;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 3px rgba(13, 46, 39, 0.06);
+  --shadow-md: 0 8px 24px rgba(13, 46, 39, 0.08);
+  --shadow-lg: 0 20px 48px rgba(13, 46, 39, 0.14);
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}

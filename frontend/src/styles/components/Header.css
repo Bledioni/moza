@@ -1,0 +1,111 @@
+.staff-header {
+  background-color: var(--color-emerald);
+  color: var(--color-cream);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  overflow: hidden;
+}
+
+.staff-header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.staff-header__monogram {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.staff-header__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.staff-header__logo-accent { color: var(--color-gold); font-style: italic; }
+
+.staff-header__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+.staff-header__username {
+  font-size: var(--text-sm);
+  color: rgba(251, 249, 244, 0.85);
+  white-space: nowrap;
+}
+
+.staff-header__logout-btn {
+  background-color: transparent;
+  color: var(--color-gold);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.staff-header__logout-btn:hover { background-color: var(--color-gold); color: var(--color-emerald); }
+
+.staff-header__burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--color-cream);
+  flex-shrink: 0;
+}
+
+.staff-header__burger svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 780px) {
+  .staff-header__burger {
+    display: flex;
+  }
+}
+
+/* Below 480px: hide the username, keep the logout button visible */
+@media (max-width: 480px) {
+  .staff-header {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .staff-header__username {
+    display: none;
+  }
+
+  .staff-header__logo {
+    font-size: var(--text-base);
+  }
+}
